@@ -13,30 +13,42 @@ file_path = os.path.join(BASE_DIR, "data", "studentInfo.csv")
 
 df = pd.read_csv(file_path)
 
-print("Columns in dataset:")
-print(df.columns)
+# -------------------------
+# 2. CLEAN + CREATE TARGET
+# -------------------------
+df = df[df["final_result"].notnull()]
+
+df["risk"] = df["final_result"].apply(
+    lambda x: 1 if x in ["Fail", "Withdrawn"] else 0
+)
 
 # -------------------------
-# 2. CLEAN FEATURES (AUTO-SELECT SAFE NUMERIC ONES)
+# 3. ENCODE CATEGORICAL FEATURES
 # -------------------------
-# This avoids the KeyError problem you just had
-X = df.select_dtypes(include=['number']).dropna()
+categorical_cols = [
+    "code_module",
+    "code_presentation",
+    "gender",
+    "region",
+    "highest_education",
+    "imd_band",
+    "age_band",
+    "disability"
+]
 
-# If your dataset has a target column, try to auto-detect it
-possible_targets = [col for col in df.columns if "result" in col.lower() or "risk" in col.lower()]
-
-if len(possible_targets) > 0:
-    target_col = possible_targets[0]
-else:
-    target_col = df.columns[-1]  # fallback (last column)
-
-y = df[target_col]
-
-# Align X and y safely
-X = X.loc[y.index]
+df_encoded = pd.get_dummies(df, columns=categorical_cols, drop_first=True)
 
 # -------------------------
-# 3. TRAIN / TEST SPLIT
+# 4. FEATURES / TARGET
+# -------------------------
+X = df_encoded.drop(columns=["final_result", "risk", "id_student"], errors="ignore")
+y = df_encoded["risk"]
+
+# Remove any NaNs
+X = X.fillna(0)
+
+# -------------------------
+# 5. TRAIN / TEST SPLIT
 # -------------------------
 X_train, X_test, y_train, y_test = train_test_split(
     X, y,
@@ -45,17 +57,15 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 # -------------------------
-# 4. MODEL
+# 6. MODEL
 # -------------------------
 model = RandomForestClassifier(random_state=42)
 model.fit(X_train, y_train)
 
 # -------------------------
-# 5. EVALUATION
+# 7. EVALUATION
 # -------------------------
 preds = model.predict(X_test)
 
 print("\nAccuracy:", accuracy_score(y_test, preds))
-print("\nTarget column used:", target_col)
-
 print("\nModel training complete.")

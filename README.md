@@ -1,107 +1,59 @@
-# Student Risk Prediction System
+#  Student Risk Prediction System (AI + ML Web Application)
 
-A machine learning project that predicts student academic risk using demographic and educational data from the Open University Learning Analytics Dataset (OULAD).
-
-## Overview
-
-This project builds a student risk prediction pipeline capable of:
-
-- Loading and preprocessing educational data
-- Training a machine learning classification model
-- Predicting whether students are academically at risk
-- Evaluating model performance
-- Experimenting with explainability techniques (SHAP)
-- Simulating intervention strategies to reduce student risk
-
-The project was built as part of a personal machine learning and data science portfolio focused on educational analytics and predictive systems.
+An end-to-end machine learning and AI system that predicts student academic risk using the Open University Learning Analytics Dataset (OULAD), enhanced with an interactive LLM-powered assistant (Nova) and a full Streamlit web interface.
 
 ---
 
-## Technologies Used
+##  Overview
+
+This project is a full-stack machine learning application that:
+
+- Predicts student academic risk using a Random Forest model
+- Provides probability-based risk scoring
+- Uses the Open University Learning Analytics Dataset (OULAD)
+- Includes explainable intervention recommendations
+- Integrates a local LLM assistant (Nova) for real-time student/data Q&A
+- Provides an interactive Streamlit web interface for end users
+
+The system was developed as part of a personal data science and AI portfolio project focused on educational analytics and applied machine learning systems.
+
+---
+
+##  Key Features
+
+###  Machine Learning System
+- Random Forest classification model
+- Risk probability scoring
+- Feature-based prediction pipeline
+
+###  AI-Powered Insights
+- Student-level risk predictions
+- Automated intervention suggestions
+- Outcome improvement strategies
+
+###  Nova AI Assistant (LLM Integration)
+- Natural language interface for dataset questions
+- Explains predictions and risk factors
+- Runs locally using Ollama (Llama 3)
+
+###  Web Application (Streamlit)
+- Upload custom datasets (CSV)
+- Or use built-in OULAD dataset
+- Interactive dashboard
+- Real-time predictions and AI chat
+
+---
+
+## 🛠 Technologies Used
 
 - Python
 - Pandas
 - Scikit-learn
-- SHAP
-- Jupyter Notebook
-- VS Code
+- Streamlit
+- Ollama (Llama 3 LLM)
+- Jupyter Notebook (initial experimentation)
+- Git & GitHub (version control)
 
 ---
 
-## Project Structure
-
-```text
-Student Risk Personal Project/
-│
-├── data/
-│   └── studentInfo.csv
-│
-├── src/
-│   ├── model.py
-│   └── pipeline.py
-│
-├── notebooks/
-│   └── 01_exploration.ipynb
-│
-├── README.md
-├── requirements.txt
-└── .gitignore
-```
-
----
-
-## Features
-
-### Machine Learning Pipeline
-- Data loading
-- Data preprocessing
-- Train/test splitting
-- Random Forest classification
-- Model evaluation
-
-### Explainability
-- SHAP-based feature contribution analysis
-- Student-level prediction interpretation
-
-### Intervention Simulation
-- Simulates academic support strategies
-- Estimates reduction in student risk probability
-
----
-
-## Example Output
-
-```python
-{
-    'risk_score': 0.05,
-    'risk_level': 'LOW',
-    'best_intervention': 'study_boost',
-    'expected_new_risk': 0.01,
-    'expected_reduction': 0.04
-}
-```
-
----
-
-## Future Improvements
-
-- Streamlit web application
-- AI-powered academic support assistant
-- Improved feature engineering
-- Enhanced intervention modeling
-- Real-time dashboard integration
-
----
-
-## Dataset
-
-Open University Learning Analytics Dataset (OULAD)
-
-https://analyse.kmi.open.ac.uk/open_dataset
-
----
-
-## Author
-
-Braxton Vogel
-Software Engineering Student at Sam Houston State University
+##  Project Structure

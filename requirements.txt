@@ -1,6 +1,8 @@
 pandas
 numpy
 scikit-learn
-shap
+streamlit
+ollama
 matplotlib
+shap
 jupyter
