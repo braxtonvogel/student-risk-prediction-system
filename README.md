@@ -67,6 +67,61 @@ Student Risk Prediction System/
 
 ---
 
+## How to Run the Project (Step-by-Step)
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/braxtonvogel/student-risk-prediction-system.git
+cd student-risk-prediction-system
+```
+
+---
+
+### 2. Create a virtual environment (recommended)
+```bash
+python -m venv venv
+```
+
+Activate it:
+
+**Windows:**
+```bash
+venv\Scripts\activate
+```
+
+---
+
+### 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 4. Install and run Ollama (for AI assistant)
+
+Download Ollama:
+https://ollama.com/download
+
+Then install the model used by the app:
+```bash
+ollama run llama3
+```
+
+---
+
+### 5. Run the Streamlit app
+```bash
+streamlit run src/app.py
+```
+
+Then open in your browser:
+```
+http://localhost:8501
+```
+
+---
+
 ## Example Output
 
 ### Risk Prediction Table
