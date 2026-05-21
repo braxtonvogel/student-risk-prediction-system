@@ -63,6 +63,7 @@ Student Risk Prediction System/
 ├── requirements.txt
 ├── README.md
 └── .gitignore
+└── shap_interaction.png
 ```
 
 ---
@@ -112,7 +113,7 @@ ollama run llama3
 
 ### 5. Run the Streamlit app
 ```bash
-streamlit run src/app.py
+streamlit run src/app.py  or  python -m streamlit run src/app.py
 ```
 
 Then open in your browser:
