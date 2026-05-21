@@ -134,6 +134,13 @@ http://localhost:8501
 
 ---
 
+## Model Explainability (SHAP)
+This project uses SHAP (SHapley Additive exPlanations) to analyze feature importance and feature interactions within the student risk prediction model. The visualization below demonstrates how variables such as active_days and total_clicks interact to influence student risk predictions.
+
+![SHAP Interaction Plot](shap_interaction.png)
+
+---
+
 ### AI Assistant (Nova)
 
 User: What does a high risk score mean?
